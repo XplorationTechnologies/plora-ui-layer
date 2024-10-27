@@ -1,73 +1,78 @@
-# Nuxt Layer Starter
+# Plora UI Layer
 
-Create Nuxt extendable layer with this GitHub template.
+Extendable Nuxt layer for Plora UI, developed by Xploratech. This layer is built on top of [Nuxt](https://nuxtjs.org/) and [Nuxt UI](https://ui.nuxt.com/).
 
 ## Setup
 
-Make sure to install the dependencies:
+NOTE: Whether you are first or second method, you must install the [@nuxt/ui](https://ui.nuxt.com/getting-started/installation) module in your project. Because this layer is built on top of Nuxt UI, it requires the Nuxt UI module to be installed in your project.
 
-```bash
-pnpm install
-```
+You can add this layer to your project with 2 methods:
 
-## Working on your layer
+### 1. Git Repository
 
-Your layer is at the root of this repository, it is exactly like a regular Nuxt project, except you can publish it on NPM.
+You can use this layer with a git repository. Add the following to your [nuxt.config.js](https://nuxt.com/docs/guide/going-further/layers#git-repository)
 
-The `.playground` directory should help you on trying your layer during development.
-
-Running `pnpm dev` will prepare and boot `.playground` directory, which imports your layer itself.
-
-## Distributing your layer
-
-Your Nuxt layer is shaped exactly the same as any other Nuxt project, except you can publish it on NPM.
-
-To do so, you only have to check if `files` in `package.json` are valid, then run:
-
-```bash
-npm publish --access public
-```
-
-Once done, your users will only have to run:
-
-```bash
-npm install --save your-layer
-```
-
-Then add the dependency to their `extends` in `nuxt.config`:
-
-```ts
-defineNuxtConfig({
-  extends: "your-layer"
+```js
+export default defineNuxtConfig({
+  extends: [
+    "github:xplorationtechnology/plora-ui-layer", // GitHub Remote Source
+    "github:xplorationtechnology/plora-ui-layer/base", // GitHub Remote Source within /base directory
+    "github:xplorationtechnology/plora-ui-layer#dev", // GitHub Remote Source from dev branch
+    "github:xplorationtechnology/plora-ui-layer#v1.0.0", // GitHub Remote Source from v1.0.0 tag
+    "gitlab:xplorationtechnology/plora-ui-layer", // GitLab Remote Source example
+    "bitbucket:xplorationtechnology/plora-ui-layer", // Bitbucket Remote Source example
+  ]
 });
 ```
 
-## Development Server
+### 2. NPM Package (Recommended)
 
-Start the development server on http://localhost:3000
+You can use this layer as an npm package. Add the following to your [nuxt.config.js](https://nuxt.com/docs/guide/going-further/layers#npm-package)
 
-```bash
-pnpm dev
+```js
+export default defineNuxtConfig({
+  extends: [
+    "plora-ui-layer",
+  ]
+});
 ```
 
-## Production
-
-Build the application for production:
+Make sure to install the package first as a dev dependency:
 
 ```bash
-pnpm build
+pnpm add -D plora-ui-layer # pnpm
 ```
-
-Or statically generate it with:
 
 ```bash
-pnpm generate
+{
+  devDependencies: {
+    "plora-ui-layer": "^1.0.0"
+  }
+}
 ```
 
-Locally preview production build:
+## Features
 
-```bash
-pnpm preview
-```
+- **Base Components from Nuxt UI**
 
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+  A collection of UI components to build your application.
+
+- **Components Kit**
+
+  A collection of custom components to build your application which are built on top of Nuxt UI components.
+
+- **Layouts**
+
+  A collection of layouts to build your application.
+
+## Contributing
+
+If you want to contribute to this project and make it better, your help is very welcome. Create a pull request with your recommended changes.
+
+### Credits
+
+- [Nuxt UI](https://ui.nuxt.com/)
+
+## License
+
+Lisenced under the [MIT License](LICENSE).

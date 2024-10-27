@@ -1,5 +1,11 @@
-// Base theme from Plora UI Kit
-export default {
+/**
+ * Plora UI Preset
+ *
+ * This preset provides automatic inclusion for extending the Plora UI layer.
+ * Note: Tailwind CSS IntelliSense may not detect custom colors defined in this preset correctly.
+ * To enable IntelliSense support, manually add the custom colors in your project's `tailwind.config.js`.
+ */
+export const ploraPreset = {
   theme: {
     extend: {
       colors: {

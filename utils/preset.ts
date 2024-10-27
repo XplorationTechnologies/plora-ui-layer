@@ -1,5 +1,5 @@
 // Base theme from Plora UI Kit
-module.exports = {
+export default {
   theme: {
     extend: {
       colors: {
@@ -42,7 +42,6 @@ module.exports = {
           900: "#3c3c3d",
           950: "#262527",
         },
-
       },
     },
   },

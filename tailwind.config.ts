@@ -1,9 +1,9 @@
 import type { Config } from "tailwindcss";
+import preset from "./utils/preset";
 
 /** @type {import('tailwindcss').Config} */
 export default <Partial<Config>>{
   presets: [
-    // eslint-disable-next-line ts/no-require-imports
-    require("./utils/preset.ts"),
+    preset,
   ],
 };
